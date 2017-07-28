@@ -1,0 +1,257 @@
+
+
+安装以下软件
+
+sudo apt-get install build-essential
+sudo apt-get install python-dev python3-dev
+sudo apt-get install cmake
+sudo apt-get install clang3.5 (3.5是版本，可能会变)
+
+
+找到libclang.s1然后在找到的目录小做硬链接
+ln -s libclang.so.1 libclang.so
+
+
+cd ~
+mkdir ycm_build
+cd ycm_build
+
+
+cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=/usr/lib/i386-linux-gnu/libclang.so(libclang.so所在目录) . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+
+
+make ycm_support_libs
+
+
+
+在.vimrc中添加
+
+
+"自动补全配置
+set completeopt=longest,menu "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif"离开插入模式后自动关闭预览窗口
+inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '<CR>'"回车即选中当前项
+"上下左右键的行为 会显示其他信息
+inoremap <expr> <Down>     pumvisible() ? '<C-n>' : '<Down>'
+inoremap <expr> <Up>       pumvisible() ? '<C-p>' : '<Up>'
+inoremap <expr> <PageDown> pumvisible() ? '<PageDown><C-p><C-n>' : '<PageDown>'
+inoremap <expr> <PageUp>   pumvisible() ? '<PageUp><C-p><C-n>' : '<PageUp>'
+
+
+"youcompleteme  默认tab  s-tab 和自动补全冲突
+"let g:ycm_key_list_select_completion=['<c-n>']
+let g:ycm_key_list_select_completion = ['<Down>']
+"let g:ycm_key_list_previous_completion=['<c-p>']
+let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
+
+
+let g:ycm_collect_identifiers_from_tags_files=1 "开启 YCM 基于标签引擎
+let g:ycm_min_num_of_chars_for_completion=2 "从第2个键入字符就开始罗列匹配项
+let g:ycm_cache_omnifunc=0 "禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_seed_identifiers_with_syntax=1 "语法关键字补全
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR> "force recomile with syntastic
+"nnoremap <leader>lo :lopen<CR> "open locationlist
+"nnoremap <leader>lc :lclose<CR> "close locationlist
+inoremap <leader><leader> <C-x><C-o>
+"在注释输入中也能补全
+let g:ycm_complete_in_comments = 1
+"在字符串输入中也能补全
+let g:ycm_complete_in_strings = 1
+"注释和字符串中的文字也会被收入补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+
+
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR> "跳转到定义处
+
+
+.ycm_extra_confy.py的内容
+
+# This file is NOT licensed under the GPLv3, which is the license for the rest
+# of YouCompleteMe.
+#
+# Here's the license text for this file:
+#
+# This is free and unencumbered software released into the public domain.
+#
+# Anyone is free to copy, modify, publish, use, compile, sell, or
+# distribute this software, either in source code form or as a compiled
+# binary, for any purpose, commercial or non-commercial, and by any
+# means.
+#
+# In jurisdictions that recognize copyright laws, the author or authors
+# of this software dedicate any and all copyright interest in the
+# software to the public domain. We make this dedication for the benefit
+# of the public at large and to the detriment of our heirs and
+# successors. We intend this dedication to be an overt act of
+# relinquishment in perpetuity of all present and future rights to this
+# software under copyright law.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+# OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+# ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+#
+# For more information, please refer to <http://unlicense.org/>
+
+
+import os
+import ycm_core
+
+
+# These are the compilation flags that will be used in case there's no
+# compilation database set (by default, one is not set).
+# CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
+flags = [
+'-Wall',
+'-Wextra',
+'-Werror',
+#'-Wc++98-compat',
+'-Wno-long-long',
+'-Wno-variadic-macros',
+'-fexceptions',
+'-stdlib=libc++',
+# THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
+# language to use when compiling headers. So it will guess. Badly. So C++
+# headers will be compiled as C headers. You don't want that so ALWAYS specify
+# a "-std=<something>".
+# For a C project, you would set this to something like 'c99' instead of
+# 'c++11'.
+'-std=c99',
+# ...and the same thing goes for the magic -x option which specifies the
+# language that the files to be compiled are written in. This is mostly
+# relevant for c++ headers.
+# For a C project, you would set this to 'c' instead of 'c++'.
+'-x', 'c',
+'-I', '.',
+'-I', 'systags'
+'-isystem', '/usr/include',
+'-isystem', '/usr/include/i386-linux-gnu/',
+'-isystem', '/usr/include/i386-linux-gnu/bits',
+'-isystem', '/usr/include/linux',
+'-isystem', '/usr/local/include',
+]
+
+
+
+
+# Set this to the absolute path to the folder (NOT the file!) containing the
+# compile_commands.json file to use that instead of 'flags'. See here for
+# more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html
+#
+# Most projects will NOT need to set this to anything; you can just change the
+# 'flags' list of compilation flags. Notice that YCM itself uses that approach.
+compilation_database_folder = ''
+
+
+if os.path.exists( compilation_database_folder ):
+  database = ycm_core.CompilationDatabase( compilation_database_folder )
+else:
+  database = None
+
+
+SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
+
+
+def DirectoryOfThisScript():
+  return os.path.dirname( os.path.abspath( __file__ ) )
+
+
+
+
+def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
+  if not working_directory:
+    return list( flags )
+  new_flags = []
+  make_next_absolute = False
+  path_flags = [ '-isystem', '-I', '-iquote', '--sysroot=' ]
+  for flag in flags:
+    new_flag = flag
+
+
+    if make_next_absolute:
+      make_next_absolute = False
+      if not flag.startswith( '/' ):
+        new_flag = os.path.join( working_directory, flag )
+
+
+    for path_flag in path_flags:
+      if flag == path_flag:
+        make_next_absolute = True
+        break
+
+
+      if flag.startswith( path_flag ):
+        path = flag[ len( path_flag ): ]
+        new_flag = path_flag + os.path.join( working_directory, path )
+        break
+
+
+    if new_flag:
+      new_flags.append( new_flag )
+  return new_flags
+
+
+
+
+def IsHeaderFile( filename ):
+  extension = os.path.splitext( filename )[ 1 ]
+  return extension in [ '.h', '.hxx', '.hpp', '.hh' ]
+
+
+
+
+def GetCompilationInfoForFile( filename ):
+  # The compilation_commands.json file generated by CMake does not have entries
+  # for header files. So we do our best by asking the db for flags for a
+  # corresponding source file, if any. If one exists, the flags for that file
+  # should be good enough.
+  if IsHeaderFile( filename ):
+    basename = os.path.splitext( filename )[ 0 ]
+    for extension in SOURCE_EXTENSIONS:
+      replacement_file = basename + extension
+      if os.path.exists( replacement_file ):
+        compilation_info = database.GetCompilationInfoForFile(
+          replacement_file )
+        if compilation_info.compiler_flags_:
+          return compilation_info
+    return None
+  return database.GetCompilationInfoForFile( filename )
+
+
+
+
+def FlagsForFile( filename, **kwargs ):
+  if database:
+    # Bear in mind that compilation_info.compiler_flags_ does NOT return a
+    # python list, but a "list-like" StringVec object
+    compilation_info = GetCompilationInfoForFile( filename )
+    if not compilation_info:
+      return None
+
+
+    final_flags = MakeRelativePathsInFlagsAbsolute(
+      compilation_info.compiler_flags_,
+      compilation_info.compiler_working_dir_ )
+
+
+    # NOTE: This is just for YouCompleteMe; it's highly likely that your project
+    # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
+    # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
+    #try:
+    #  final_flags.remove( '-stdlib=libc++' )
+    #except ValueError:
+    #  pass
+  else:
+    relative_to = DirectoryOfThisScript()
+    final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
+
+
+  return {
+    'flags': final_flags,
+    'do_cache': True
+  }
+
