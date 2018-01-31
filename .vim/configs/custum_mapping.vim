@@ -1,16 +1,16 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Custum Mappings 
+" => Custum Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-no <down> ddp
-no <left> <Nop>
-no <right> <Nop>
-no <up> ddkP
-no <left> <Nop>
-vno <left> <Nop>
-vno <left> <Nop>
-vno <left> <Nop>
+"no <down> ddp
+"no <left> <Nop>
+"no <right> <Nop>
+"no <up> ddkP
+"no <left> <Nop>
+"vno <left> <Nop>
+"vno <left> <Nop>
+"vno <left> <Nop>
 
-" ctrl+f save file 
+" ctrl+f save file
 imap <C-f> <ESC>:w<CR>
 
 " insert blank line
@@ -25,3 +25,13 @@ imap <F4> <right>
 
 nmap <leader>n :NERDTree<CR><C-L>:TagbarToggle<CR><C-H><C-L><C-H>
 nmap <leader>h <C-*><C-#>
+
+nmap <leader>l :set list<CR>
+nmap <leader>ll :set nolist<CR>
+
+"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\
+
+"Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
