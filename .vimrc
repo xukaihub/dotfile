@@ -1,6 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle 
+" => Vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set up Vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -21,19 +24,25 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/winmanager'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive' 
+Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 "Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
 Plugin 'vim-scripts/std_c.zip'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'majutsushi/tagbar'
+Plugin 'jlanzarotta/bufexplorer'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'iamcco/markdown-preview.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -56,7 +65,7 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=700
-"set nu
+set nu
 set relativenumber
 " Enable filetype plugins
 filetype plugin on
@@ -73,12 +82,17 @@ let g:mapleader=" "
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
 " Fast quit and saving
 nmap <leader>q :wqa!<cr>
+
+" set past conflict with auto-pairs plugin and cscope
+"set paste
+set cuc
+set cul
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -88,7 +102,7 @@ nmap <leader>q :wqa!<cr>
 set so=7
 
 " Avoid garbled characters in Chinese language windows OS
-let $LANG='en' 
+let $LANG='en'
 set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -125,23 +139,23 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -159,7 +173,7 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -171,8 +185,8 @@ if has("gui_running")
 else
     set background=dark
 endif
-colorscheme solarized 
-"colorscheme desert  
+colorscheme solarized
+"colorscheme desert
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -194,10 +208,10 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-set expandtab
+"set expandtab
 
 " Be smart when using tabs ;)
-set smarttab
+"set smarttab
 
 " 1 tab == 4 spaces
 set shiftwidth=4
@@ -247,10 +261,6 @@ map bc :Bclose<cr>
 map ba :1,1000 bd!<cr>
 map bn :bn<cr>
 map bp :bp<cr>
-nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR>
-                            \:write<CR> :endif<CR>:bnext<CR>
-nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> 
-                            \:write<CR> :endif<CR>:bprevious<CR>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
@@ -270,13 +280,6 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-" Specify the behavior when switching between buffers 
-try
-  set switchbuf=useopen,usetab,newtab
-  set stal=2
-catch
-endtry
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -332,7 +335,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open Ack and put the cursor in the right position
-map <leader>g :Ack 
+map <leader>g :Ack
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
@@ -368,7 +371,7 @@ map <leader>s? z=0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Language 
+" => Language
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 " support chinese
@@ -397,7 +400,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
@@ -452,7 +455,7 @@ endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => source file 
+" => source file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/.vim/configs/airline.vim
 source ~/.vim/configs/ctags.vim
@@ -461,8 +464,9 @@ source ~/.vim/configs/custum_mapping.vim
 source ~/.vim/configs/winmanage.vim
 source ~/.vim/configs/nerdtree.vim
 source ~/.vim/configs/custum_mapping.vim
-"source ~/.vim/configs/youcompleteme.vim
+source ~/.vim/configs/youcompleteme.vim
 source ~/.vim/configs/stdc.vim
 source ~/.vim/configs/ctrlp.vim
 "source ~/.vim/configs/syntastic.vim
 source ~/.vim/configs/nerdcommenter.vim
+source ~/.vim/configs/nationalchip.vim
