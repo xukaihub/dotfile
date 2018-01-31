@@ -185,8 +185,8 @@ if has("gui_running")
 else
     set background=dark
 endif
-colorscheme solarized
-"colorscheme desert
+"colorscheme solarized
+colorscheme desert
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
