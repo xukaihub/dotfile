@@ -98,5 +98,5 @@ export PATH="$PATH:${XTENSA_PATH}/XtDevTools/install/tools/RG-2017.7-linux/Xtens
 export XTENSA_CORE=GXHifi4_161020A_G1707
 export XTENSA_SYSTEM=${XTENSA_PATH}/XtDevTools/install/builds/RG-2017.7-linux/${XTENSA_CORE}/config
 
-. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+#. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 
