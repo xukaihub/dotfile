@@ -28,10 +28,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
-"Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
+"Plugin 'scrooloose/syntastic'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'rdnetto/YCM-Generator'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -170,6 +170,8 @@ set tm=500
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+" Close preview when complete
+set completeopt-=preview
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -467,7 +469,7 @@ source ~/.vim/configs/winmanage.vim
 source ~/.vim/configs/nerdtree.vim
 source ~/.vim/configs/custum_mapping.vim
 source ~/.vim/configs/ctrlp.vim
-source ~/.vim/configs/youcompleteme.vim
+" source ~/.vim/configs/youcompleteme.vim
 "source ~/.vim/configs/syntastic.vim
 source ~/.vim/configs/nerdcommenter.vim
 source ~/.vim/configs/neocomplete.vim
