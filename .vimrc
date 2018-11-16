@@ -30,11 +30,11 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'scrooloose/syntastic'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'rdnetto/YCM-Generator'
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+ Plugin 'Valloric/YouCompleteMe'
+ Plugin 'rdnetto/YCM-Generator'
+"Plugin 'Shougo/neocomplete'
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/neosnippet-snippets'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'terryma/vim-multiple-cursors'
@@ -469,9 +469,9 @@ source ~/.vim/configs/winmanage.vim
 source ~/.vim/configs/nerdtree.vim
 source ~/.vim/configs/custum_mapping.vim
 source ~/.vim/configs/ctrlp.vim
-" source ~/.vim/configs/youcompleteme.vim
+ source ~/.vim/configs/youcompleteme.vim
 "source ~/.vim/configs/syntastic.vim
 source ~/.vim/configs/nerdcommenter.vim
-source ~/.vim/configs/neocomplete.vim
-source ~/.vim/configs/neosnippet.vim
+"source ~/.vim/configs/neocomplete.vim
+"source ~/.vim/configs/neosnippet.vim
 source ~/.vim/configs/nationalchip.vim
