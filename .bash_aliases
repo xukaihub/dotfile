@@ -23,6 +23,7 @@ alias fix="dpkg -l |grep ^rc|awk '{print $2}' |sudo xargs dpkg -P"
 
 # compare tool
 alias comp="meld"
+
 # git alias
 alias gits="git status"
 alias gitl="git log"
@@ -41,9 +42,6 @@ alias putty='ssh root@192.168.110.154'
 alias csrbq='sudo find `pwd` -type f  -name "*.[chS]" > cscope.files && cscope -bR -i cscope.files'
 alias ctagsdb='ctags -R *'
 alias db_init='csrbq && ctagsdb'
-
-alias gerrit='firefox 192.168.110.254/gerrit'
-alias redmine='firefox 192.168.110.254/redmine'
 
 pc () {
     picocom -b 115200 /dev/ttyUSB$1
@@ -76,7 +74,6 @@ extract () {
 install () {
     sudo apt-get install $@
 }
-export EDITOR=/usr/bin/vim
 
 man()
 {
@@ -91,13 +88,11 @@ man()
     man "$@"
 }
 
+export EDITOR=/usr/bin/vim
 
-export PATH=$PATH:/opt/gxtools/csky-abiv2-elf/bin
+export PATH=$PATH:/opt/csky/csky-abiv2-elf/bin
+export PATH="$PATH:${XTENSA_PATH}/XtDevTools/install/tools/RG-2017.7-linux/XtensaTools/bin"
 
 export XTENSA_PATH=$HOME/xtensa
-export PATH="$PATH:${XTENSA_PATH}/XtDevTools/install/tools/RG-2017.7-linux/XtensaTools/bin"
 export XTENSA_CORE=GXHifi4_161020A_G1707
 export XTENSA_SYSTEM=${XTENSA_PATH}/XtDevTools/install/builds/RG-2017.7-linux/${XTENSA_CORE}/config
-
-#. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
-
