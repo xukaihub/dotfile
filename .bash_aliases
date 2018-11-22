@@ -7,6 +7,7 @@ alias bbb="cd ../../..;ls"
 alias ~="cd ~;ls"
 alias -- -="cd -;ls"
 alias lah="ls -lah"
+alias lh="ls -lh"
 
 # copy file interactive
 alias cp='cp -rf'
