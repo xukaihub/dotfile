@@ -42,6 +42,12 @@ alias putty='ssh root@192.168.110.154'
 alias csrbq='sudo find `pwd` -type f  -name "*.[chS]" > cscope.files && cscope -bR -i cscope.files'
 alias ctagsdb='ctags -R *'
 alias db_init='csrbq && ctagsdb'
+alias sadb='adb kill-server; sudo adb start-server;adb devices'
+
+# repo alias
+alias rs='repo sync'
+alias rb='repo abandon'
+alias rp='repo upload'
 
 pc () {
     picocom -b 115200 /dev/ttyUSB$1
@@ -75,6 +81,15 @@ install () {
     sudo apt-get install $@
 }
 
+# python virtual env
+venv () {
+	virtualenv $@
+}
+
+venv3 () {
+	ptyon3 -m venv $@
+}
+
 man()
 {
     env \
@@ -90,9 +105,9 @@ man()
 
 export EDITOR=/usr/bin/vim
 
-export PATH=$PATH:/opt/csky/csky-abiv2-elf/bin
-export PATH="$PATH:${XTENSA_PATH}/XtDevTools/install/tools/RG-2017.7-linux/XtensaTools/bin"
+# export PATH=$PATH:/opt/csky/csky-abiv2-elf/bin
+# export PATH="$PATH:${XTENSA_PATH}/XtDevTools/install/tools/RG-2017.7-linux/XtensaTools/bin"
 
-export XTENSA_PATH=$HOME/xtensa
-export XTENSA_CORE=GXHifi4_161020A_G1707
-export XTENSA_SYSTEM=${XTENSA_PATH}/XtDevTools/install/builds/RG-2017.7-linux/${XTENSA_CORE}/config
+# export XTENSA_PATH=$HOME/xtensa
+# export XTENSA_CORE=GXHifi4_161020A_G1707
+# export XTENSA_SYSTEM=${XTENSA_PATH}/XtDevTools/install/builds/RG-2017.7-linux/${XTENSA_CORE}/config
