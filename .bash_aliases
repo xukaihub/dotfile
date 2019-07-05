@@ -42,6 +42,8 @@ alias putty='ssh root@192.168.110.154'
 alias csrbq='sudo find -type f -name "*.[chS]" > cscope.files && cscope -bR -i cscope.files'
 alias ctagsdb='ctags -R *'
 alias db_init='csrbq && ctagsdb'
+alias db_clean='rm -f cscope.* tags'
+
 alias sadb='adb kill-server; sudo adb start-server;adb devices'
 
 # repo alias
