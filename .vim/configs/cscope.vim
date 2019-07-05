@@ -6,7 +6,7 @@ if has("cscope")
     set csto=1
     set cst
     set nocsverb
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
+    " set cscopequickfix=s-,c-,d-,i-,t-,e-
     set timeoutlen=4000
 " add any database in current directory
     if filereadable("cscope.out")
