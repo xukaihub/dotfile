@@ -1,0 +1,7 @@
+[user]
+	email = xukai@nationalchip.com
+	name = xukai
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore_global
