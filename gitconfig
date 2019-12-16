@@ -5,3 +5,5 @@
 	ui = auto
 [core]
 	excludesfile = ~/.gitignore_global
+[oh-my-zsh]
+	hide-dirty = 1
