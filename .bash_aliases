@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Easier navigation: .., ..., ...., ....., ~ and -
-alias cd='func() {cd $1; clear; ls}; func'
-alias b='cd .."
-alias bb='cd ../..
-alias bbb='cd ../../..'
-alias ~='cd ~'
-alias -- -='cd -'
+alias cl='cd_ls() {cd $1; clear; ls}; cd_ls'
+alias b='cl ..'
+alias bb='cl ../..'
+alias bbb='cl ../../..'
+alias ~='cl ~'
+alias -- -='cl -'
 alias lah='ls -lah'
 alias lh='ls -lh'
 
@@ -31,15 +31,15 @@ alias comp='meld'
 
 # git alias
 alias gits='git status'
-alias gitl='git log"'
+alias gitl='git log'
 alias gitd='git diff'
 alias gitdc='git diff --cached'
 alias gitb='git branch'
 alias gitc='git checkout -- .'
 alias gitr='git reset --hard HEAD^'
 
-alias f="find . -name"
-alias g="grep -nr"
+alias f='find . -name'
+alias g='grep -nr'
 
 #python http server
 alias pservice='python3 -m http.server'
