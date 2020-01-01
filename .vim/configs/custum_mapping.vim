@@ -18,6 +18,8 @@ nmap g<C-o> o<ESC>k
 nmap gO O<ESC>j
 
 map <F2> :bn<CR>
+map <F7> :set nonumber<CR> :set norelativenumber<CR>
+map <F8> :set nu<CR> :set relativenumber<CR>
 
 imap <C-L> <C-X><C-O><C-P>
 imap <F3> <left>
