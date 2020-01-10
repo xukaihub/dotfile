@@ -37,6 +37,9 @@ alias gitdc='git diff --cached'
 alias gitb='git branch'
 alias gitc='git checkout -- .'
 alias gitr='git reset --hard HEAD^'
+alias gitco='git checkout'
+alias gitaa='git add --all'
+alias gitau='git add -u'
 
 alias f='find . -name'
 alias g='grep -nr'
@@ -59,11 +62,16 @@ alias sadb='adb kill-server; sudo adb start-server;adb devices'
 alias doc='remmina'
 
 # repo alias
-alias rs='repo sync'
-alias rb='repo abandon'
-alias rp='repo upload'
+alias repos='repo sync'
+alias repob='repo abandon'
+alias repou='repo upload .'
 
 alias pi='ssh pi@192.168.191.120'
+
+# tmux alias
+alias ta='tmux attach'
+alias tl='tmux list-sessions'
+alias tk='tmux kill-session -t $1'
 
 pc () {
     picocom -b 115200 /dev/ttyUSB$1
