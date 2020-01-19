@@ -19,6 +19,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'altercation/vim-colors-solarized'
@@ -26,7 +27,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'plasticboy/vim-markdown'
 Plug 'dyng/ctrlsf.vim'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py'  }
+Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Initialize plugin system
@@ -444,6 +445,7 @@ source ~/.vim/configs/nerdtree.vim
 source ~/.vim/configs/nerdcommenter.vim
 source ~/.vim/configs/youcompleteme.vim
 source ~/.vim/configs/trailing-whitespace.vim
+source ~/.vim/configs/vim-easy-align.vim
 source ~/.vim/configs/custum_mapping.vim
 source ~/.vim/configs/nationalchip.vim
 

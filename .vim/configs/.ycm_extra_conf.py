@@ -171,3 +171,12 @@ def FlagsForFile( filename, **kwargs ):
     'flags': final_flags,
     'do_cache': True
   }
+
+def Settings( **kwargs ):
+    language = kwargs[ 'language' ]
+    if language == 'cfamily':
+        return {
+            'flags': flags
+        }
+
+    return {}
