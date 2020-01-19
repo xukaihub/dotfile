@@ -15,6 +15,7 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+
 # Load the theme.
 antigen theme gnzh
 
@@ -28,3 +29,5 @@ source $HOME/.bash_aliases
 
 # zsh-autosuggestions settings
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
