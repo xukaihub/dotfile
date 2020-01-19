@@ -26,7 +26,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'mileszs/ack.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Valloric/YouCompleteMe'
@@ -42,6 +42,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'bronson/vim-trailing-whitespace'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -469,7 +470,7 @@ source ~/.vim/configs/custum_mapping.vim
 source ~/.vim/configs/winmanage.vim
 source ~/.vim/configs/nerdtree.vim
 source ~/.vim/configs/custum_mapping.vim
-source ~/.vim/configs/ctrlp.vim
+source ~/.vim/configs/fzf.vim
 source ~/.vim/configs/youcompleteme.vim
 source ~/.vim/configs/nerdcommenter.vim
 source ~/.vim/configs/nationalchip.vim
