@@ -25,6 +25,7 @@ Plugin 'vim-scripts/winmanager'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'mileszs/ack.vim'
 Plugin 'junegunn/fzf'
 Plugin 'easymotion/vim-easymotion'
@@ -473,5 +474,6 @@ source ~/.vim/configs/custum_mapping.vim
 source ~/.vim/configs/fzf.vim
 source ~/.vim/configs/youcompleteme.vim
 source ~/.vim/configs/nerdcommenter.vim
-source ~/.vim/configs/nationalchip.vim
 source ~/.vim/configs/trailing-whitespace.vim
+source ~/.vim/configs/nationalchip.vim
+
