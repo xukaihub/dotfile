@@ -129,14 +129,13 @@ man()
     man "$@"
 }
 
-# . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+export PATH="$PATH:$HOME/.fzf/bin"
 
 export XTENSA_PATH=$HOME/xtensa
 export PATH="$PATH:${XTENSA_PATH}/XtDevTools/install/tools/RG-2017.8-linux/XtensaTools/bin"
 export XTENSA_CORE=GXHifi4_170719A_G1708
 export XTENSA_SYSTEM=${XTENSA_PATH}/XtDevTools/install/builds/RG-2017.8-linux/${XTENSA_CORE}/config
 
-export PATH="$PATH:$HOME/.local/pycharm-2018.2.4/bin"
 export PATH="$PATH:$HOME/intelFPGA_pro/18.1/qprogrammer/bin"
 
 # export PATH="$PATH:$HOME/.local/csky/2.8.07/bin"
