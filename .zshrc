@@ -10,6 +10,7 @@ antigen use oh-my-zsh
 antigen bundle z
 antigen bundle git
 antigen bundle sudo
+antigen bundle extract
 antigen bundle command-not-found
 
 antigen bundle zsh-users/zsh-autosuggestions
