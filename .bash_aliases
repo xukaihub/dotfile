@@ -47,6 +47,8 @@ alias gitco='git checkout'
 alias gitcom='git checkout master'
 alias gitaa='git add --all'
 alias gitau='git add -u'
+alias gitcm='git commit'
+alias gitcma='git commit --amend'
 
 # repo alias
 alias repos='repo sync'

@@ -29,6 +29,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plug 'sheerun/vim-polyglot'
 
 " Initialize plugin system
 call plug#end()
