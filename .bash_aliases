@@ -1,12 +1,11 @@
 #!/bin/bash
 
 # Easier navigation: .., ..., ...., ....., ~ and -
-alias cl='cd_ls() {cd $1; clear; ls}; cd_ls'
-alias b='cl ..'
-alias bb='cl ../..'
-alias bbb='cl ../../..'
-alias ~='cl ~'
-alias -- -='cl -'
+
+alias b='cd ..; clear; ls'
+alias bb='cd ../..; clear; ls'
+alias bbb='cd ../../..; clear; ls'
+alias ~='cd ~; clear; ls'
 alias lah='ls -lah'
 alias lh='ls -lh'
 
@@ -14,7 +13,7 @@ alias cp='cp -rf'
 alias mv='mv -i'
 
 alias c='clear;ls'
-alias fix="dpkg -l | grep ^rc | awk '{print $2}' | sudo xargs dpkg -P"
+alias fix="dpkg -l | grep ^rc | awk '{print $2}' | sudo xargs dpkg -P 2>  /dev/null"
 
 alias free='free -h'
 alias df='df -h'
@@ -33,7 +32,6 @@ alias db_init='csrbq && ctagsdb'
 alias db_clean='rm -f cscope.* tags'
 
 alias sadb='adb kill-server; sudo adb start-server;adb devices'
-alias doc='remmina'
 
 # git alias
 alias gits='git status'
@@ -65,6 +63,7 @@ alias mck='make clean;make'
 alias makem='make menuconfig'
 
 pc ()      { picocom -b 115200 /dev/ttyUSB$1; }
+mc ()      { minicom -D /dev/ttyUSB$1 -b 115200 --color=on; }
 install () { sudo apt-get install $@; }
 venv3 ()   { python3 -m venv $@; }
 
@@ -100,11 +99,13 @@ export XTENSA_SYSTEM=${XTENSA_PATH}/XtDevTools/install/builds/RG-2017.8-linux/${
 
 export PATH="$PATH:$HOME/intelFPGA_pro/18.1/qprogrammer/bin"
 
-export PATH="$PATH:$HOME/.local/csky/3.8.12/bin"
+export PATH="$PATH:$HOME/.local/csky/3.10.15/bin"
 export PATH="$PATH:$HOME/.local/csky/csky-elf/bin"
 export PATH="$PATH:$HOME/.local/csky/csky-linux-uclibc-tools/bin"
+# export PATH="$PATH:$HOME/.local/csky/linux-2.6/csky-linux-tools-i386-uclibc-20170724/bin"
 
-export PATH="$PATH:$HOME/.local/goxceed/gcc-nationalchip-arm-none-eabi-4_9-2015q3-20150921/bin"
-export PATH="$PATH:$HOME/.local/goxceed/gcc-nationalchip-4.9.4-2018.11-i686_arm-linux-uclibcgnueabihf/bin"
+export PATH="$PATH:$HOME/.local/goxceed/arm-linux-gnueabihf/bin"
+export PATH="$PATH:$HOME/.local/goxceed/arm-linux-uclibcgnueabihf/bin"
+export PATH="$PATH:$HOME/.local/goxceed/arm-none-eabi/bin"
 
 export PATH="$PATH:$HOME/.local/arm-jlink"
