@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Easier navigation: .., ..., ...., ....., ~ and -
-
 alias b='cd ..; clear; ls'
 alias bb='cd ../..; clear; ls'
 alias bbb='cd ../../..; clear; ls'
@@ -92,20 +90,19 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 #
 # PATH
 #
-export XTENSA_PATH=$HOME/xtensa
-export PATH="$PATH:${XTENSA_PATH}/XtDevTools/install/tools/RG-2017.8-linux/XtensaTools/bin"
-export XTENSA_CORE=GXHifi4_170719A_G1708
-export XTENSA_SYSTEM=${XTENSA_PATH}/XtDevTools/install/builds/RG-2017.8-linux/${XTENSA_CORE}/config
+function ADD_PATH() {
+    if [[ -d $1 ]] && [[ ! $PATH =~ $1 ]]; then
+        export PATH="$PATH:$1"
+    fi
+}
 
-export PATH="$PATH:$HOME/intelFPGA_pro/18.1/qprogrammer/bin"
+ADD_PATH $HOME/intelFPGA_pro/18.1/qprogrammer/bin
 
-export PATH="$PATH:$HOME/.local/csky/3.10.15/bin"
-export PATH="$PATH:$HOME/.local/csky/csky-elf/bin"
-export PATH="$PATH:$HOME/.local/csky/csky-linux-uclibc-tools/bin"
-# export PATH="$PATH:$HOME/.local/csky/linux-2.6/csky-linux-tools-i386-uclibc-20170724/bin"
+ADD_PATH $HOME/.local/toolchains/csky/csky-elf/bin
+ADD_PATH $HOME/.local/toolchains/csky/csky-elfabiv2/bin
+ADD_PATH $HOME/.local/toolchains/csky/csky-linux-uclibc-tools/bin
 
-export PATH="$PATH:$HOME/.local/goxceed/arm-linux-gnueabihf/bin"
-export PATH="$PATH:$HOME/.local/goxceed/arm-linux-uclibcgnueabihf/bin"
-export PATH="$PATH:$HOME/.local/goxceed/arm-none-eabi/bin"
-
-export PATH="$PATH:$HOME/.local/arm-jlink"
+ADD_PATH $HOME/.local/toolchains/arm/arm-none-eabi/bin
+ADD_PATH $HOME/.local/toolchains/arm/arm-linux-gnueabihf/bin
+ADD_PATH $HOME/.local/toolchains/arm/arm-linux-uclibcgnueabihf/bin
+ADD_PATH $HOME/.local/toolchains/arm-jlink
