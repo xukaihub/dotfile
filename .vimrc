@@ -32,6 +32,9 @@ Plug 'altercation/vim-colors-solarized'
 " Fonts for vim-airline
 Plug 'powerline/fonts' , { 'do': './install.sh' }
 
+" Adds file type icons to Vim plugins such as: NERDTree, vim-airline
+Plug 'ryanoasis/vim-devicons', { 'do': '~/.vim/fonts/install.sh' }
+
 " provides a much simpler way to use some motions in vim.
 Plug 'easymotion/vim-easymotion'
 
@@ -46,6 +49,9 @@ Plug 'junegunn/fzf.vim'
 
 " Shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
 Plug 'airblade/vim-gitgutter'
+
+" A Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-fugitive'
 
 " Multiple cursors plugin for vim/neovim.
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -181,8 +187,8 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    "colorscheme solarized
-    colorscheme desert
+    colorscheme solarized
+    " colorscheme desert
 catch
 endtry
 
