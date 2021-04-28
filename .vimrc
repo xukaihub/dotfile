@@ -17,6 +17,9 @@ Plug 'scrooloose/nerdtree'
 " Quickly and easily switch between buffers.
 Plug 'jlanzarotta/bufexplorer'
 
+" IDE-like Vim tabline
+Plug 'bagrat/vim-buffet'
+
 " Intensely orgasmic commenting.
 Plug 'scrooloose/nerdcommenter'
 
@@ -30,7 +33,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 
 " Fonts for vim-airline
-Plug 'powerline/fonts' , { 'do': './install.sh' }
+Plug 'powerline/fonts', { 'do': './install.sh' }
 
 " Adds file type icons to Vim plugins such as: NERDTree, vim-airline
 Plug 'ryanoasis/vim-devicons', { 'do': '~/.vim/fonts/install.sh' }
@@ -483,5 +486,6 @@ source ~/.vim/configs/trailing-whitespace.vim
 source ~/.vim/configs/vim-easy-align.vim
 source ~/.vim/configs/easymotion.vim
 source ~/.vim/configs/custum_mapping.vim
+source ~/.vim/configs/vim-buffet.vim
 source ~/.vim/configs/nationalchip.vim
 
