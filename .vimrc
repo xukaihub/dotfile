@@ -7,29 +7,57 @@
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
+
+" Displays tags in a window, ordered by scope.
 Plug 'majutsushi/tagbar'
+
+" File system explorer for the Vim editor.
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'powerline/fonts' , { 'do': './install.sh' }
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
+
+" Quickly and easily switch between buffers.
 Plug 'jlanzarotta/bufexplorer'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'airblade/vim-gitgutter'
-Plug 'easymotion/vim-easymotion'
+
+" Intensely orgasmic commenting.
+Plug 'scrooloose/nerdcommenter'
+
+" Lean & mean status/tabline for vim that's light as air.
+Plug 'vim-airline/vim-airline'
+
+" A collection of themes for vim-airline.
+Plug 'vim-airline/vim-airline-themes'
+
+" Solarized Colorscheme for Vim.
 Plug 'altercation/vim-colors-solarized'
-Plug 'terryma/vim-multiple-cursors'
+
+" Fonts for vim-airline
+Plug 'powerline/fonts' , { 'do': './install.sh' }
+
+" provides a much simpler way to use some motions in vim.
+Plug 'easymotion/vim-easymotion'
+
+" Provides automatic closing of quotes, parenthesis, brackets, etc.
+Plug 'Raimondi/delimitMate'
+
+ " General-purpose command-line fuzzy finder.
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" General-purpose command-line fuzzy finder for vim.
+Plug 'junegunn/fzf.vim'
+
+" Shows git diff markers in the sign column and stages/previews/undoes hunks and partial hunks.
+Plug 'airblade/vim-gitgutter'
+
+" Multiple cursors plugin for vim/neovim.
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" Vim Markdown runtime files.
 Plug 'plasticboy/vim-markdown'
-Plug 'dyng/ctrlsf.vim'
+
+" Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 Plug 'bronson/vim-trailing-whitespace'
+
+" A code-completion engine for Vim.
 Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'sheerun/vim-polyglot'
 
 " Initialize plugin system
 call plug#end()
@@ -328,7 +356,7 @@ endif
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
 " Open Ack and put the cursor in the right position
-map <leader>g :Ack
+map <leader>g :Ack!
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
@@ -447,6 +475,7 @@ source ~/.vim/configs/nerdcommenter.vim
 source ~/.vim/configs/youcompleteme.vim
 source ~/.vim/configs/trailing-whitespace.vim
 source ~/.vim/configs/vim-easy-align.vim
+source ~/.vim/configs/easymotion.vim
 source ~/.vim/configs/custum_mapping.vim
 source ~/.vim/configs/nationalchip.vim
 

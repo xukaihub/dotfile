@@ -31,3 +31,5 @@ let g:ycm_complete_in_strings = 1
 "注释和字符串中的文字也会被收入补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
+"关闭语法分析报错
+let g:ycm_use_clangd = 0
