@@ -351,45 +351,6 @@ if has("autocmd")
 endif
 
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ack searching and cope displaying
-"    requires ack.vim - it's much better than vimgrep/grep
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use the the_silver_searcher if possible (much faster than Ack)
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case'
-endif
-
-" When you press gv you Ack after the selected text
-vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
-
-" Open Ack and put the cursor in the right position
-map <leader>g :Ack!
-
-" When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
-
-" Do :help cope if you are unsure what cope is. It's super useful!
-"
-" When you search with Ack, display your results in cope by doing:
-"   <leader>cc
-"
-" To go to the next search result do:
-"   <leader>n
-"
-" To go to the previous search results do:
-"   <leader>p
-"
-map <leader>cc :botright cope<cr>
-map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
-
-" Make sure that enter is never overriden in the quickfix window
-autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -476,16 +437,18 @@ endfunction
 " => source file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source ~/.vim/configs/airline.vim
-source ~/.vim/configs/fzf.vim
-source ~/.vim/configs/ctags.vim
+source ~/.vim/configs/bufexplorer.vim
 source ~/.vim/configs/cscope.vim
-source ~/.vim/configs/nerdtree.vim
-source ~/.vim/configs/nerdcommenter.vim
-source ~/.vim/configs/youcompleteme.vim
-source ~/.vim/configs/trailing-whitespace.vim
-source ~/.vim/configs/vim-easy-align.vim
-source ~/.vim/configs/easymotion.vim
+source ~/.vim/configs/ctags.vim
 source ~/.vim/configs/custum_mapping.vim
+source ~/.vim/configs/easymotion.vim
+source ~/.vim/configs/fzf.vim
+source ~/.vim/configs/nerdcommenter.vim
+source ~/.vim/configs/nerdtree.vim
+source ~/.vim/configs/tagbar.vim
+source ~/.vim/configs/trailing-whitespace.vim
 source ~/.vim/configs/vim-buffet.vim
+source ~/.vim/configs/vim-easy-align.vim
+source ~/.vim/configs/youcompleteme.vim
 source ~/.vim/configs/nationalchip.vim
 

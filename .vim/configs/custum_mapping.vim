@@ -1,15 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Custum Mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" insert blank line
-nmap g<C-o> o<ESC>k
-nmap gO O<ESC>j
-
-nmap <leader>n :NERDTree<CR><C-L>:TagbarToggle<CR><C-H><C-L><C-H>
-nmap <leader>tl :Tagbar<CR>
-nmap <leader>tt :NERDTree<CR>
-
 nmap <leader>l :set list<CR>
 nmap <leader>ll :set nolist<CR>
 
