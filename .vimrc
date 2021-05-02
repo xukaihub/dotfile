@@ -77,8 +77,18 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
+
+" Show line number
 set nu
+
+" Show relative line number
 set relativenumber
+
+" Highlight the screen column of the cursor
+set cuc
+
+" Highlight the text line of the cursor
+set cul
 
 " Enable filetype plugins
 filetype plugin on
@@ -90,8 +100,7 @@ au FocusGained,BufEnter * checktime
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader=" "
-let g:mapleader=" "
+let mapleader="\<space>"
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -99,8 +108,6 @@ nmap <leader>w :w!<cr>
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-set cuc
-set cul
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
