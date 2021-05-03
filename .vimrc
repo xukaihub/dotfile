@@ -32,9 +32,6 @@ Plug 'vim-airline/vim-airline-themes'
 " Solarized Colorscheme for Vim.
 Plug 'altercation/vim-colors-solarized'
 
-" Fonts for vim-airline
-Plug 'powerline/fonts', { 'do': './install.sh' }
-
 " Adds file type icons to Vim plugins such as: NERDTree, vim-airline
 Plug 'ryanoasis/vim-devicons', { 'do': '~/.vim/fonts/install.sh' }
 
@@ -62,9 +59,13 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Vim Markdown runtime files.
 Plug 'plasticboy/vim-markdown'
 
+" Markdown preview plugin
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
 " Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 Plug 'bronson/vim-trailing-whitespace'
 
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " Nodejs extension host for vim & neovim, load extensions like VSCode and host language servers.
 " Install nodejs:
@@ -86,6 +87,9 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 "
 " Abandoned plugins
 "
+
+" Fonts for vim-airline
+" Plug 'powerline/fonts', { 'do': './install.sh' }
 
 " A code-completion engine for Vim.
 " Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
