@@ -65,8 +65,31 @@ Plug 'plasticboy/vim-markdown'
 " Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 Plug 'bronson/vim-trailing-whitespace'
 
+
+" Nodejs extension host for vim & neovim, load extensions like VSCode and host language servers.
+" Install nodejs:
+"   $ curl -sL install-node.now.sh/lts > install-node.sh
+"   $ sudo chmod u+x install-node.sh
+"   $ ./install-node.sh --prefix=$HOME/.local
+" Install clangd:
+"   $ sudo apt install clangd
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" C/C++/ObjC semantic highlighting using cquery, ccls, or clangd
+" Add the following setting to ~/.vim/coc-settings.json
+" {
+"    "clangd.semanticHighlighting": true
+" }
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+
+"
+" Abandoned plugins
+"
+
 " A code-completion engine for Vim.
-Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
+" Plug 'ycm-core/YouCompleteMe', { 'do': 'python3 install.py --clangd-completer' }
+
 
 " Initialize plugin system
 call plug#end()
@@ -456,6 +479,7 @@ source ~/.vim/configs/tagbar.vim
 source ~/.vim/configs/trailing-whitespace.vim
 source ~/.vim/configs/vim-buffet.vim
 source ~/.vim/configs/vim-easy-align.vim
-source ~/.vim/configs/youcompleteme.vim
+" source ~/.vim/configs/youcompleteme.vim
+source ~/.vim/configs/coc.vim
 source ~/.vim/configs/nationalchip.vim
 
