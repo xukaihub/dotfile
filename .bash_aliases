@@ -47,7 +47,7 @@ alias gitcm='git commit'
 alias gitcma='git commit --amend'
 
 # repo alias
-alias repos='repo sync'
+alias repos='repo sync .'
 alias repob='repo abandon'
 alias repou='repo upload .'
 
@@ -80,6 +80,9 @@ man() {
 
 export EDITOR=/usr/bin/vim
 
+# Set bash as vi mode
+set -o vi
+
 #
 # FZF settings
 #
@@ -95,6 +98,8 @@ function ADD_PATH() {
         export PATH="$PATH:$1"
     fi
 }
+
+ADD_PATH $HOME/.local/bin
 
 ADD_PATH $HOME/intelFPGA_pro/18.1/qprogrammer/bin
 
