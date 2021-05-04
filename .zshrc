@@ -12,10 +12,8 @@ antigen bundle git
 antigen bundle sudo
 antigen bundle extract
 antigen bundle command-not-found
-
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
-
 
 # Load the theme.
 antigen theme gnzh
@@ -23,9 +21,13 @@ antigen theme gnzh
 # Tell Antigen that you're done.
 antigen apply
 
-export DEFAULT_USER=xukai
+# Hide username and hostname
+export DEFAULT_USER=$USER
+
+# Solve "zsh:no matches found" issue
 setopt no_nomatch
 
+# Source some useful bash alias
 source $HOME/.bash_aliases
 
 # zsh-autosuggestions settings
