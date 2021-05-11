@@ -23,11 +23,8 @@ Plug 'bagrat/vim-buffet'
 " Intensely orgasmic commenting.
 Plug 'scrooloose/nerdcommenter'
 
-" Lean & mean status/tabline for vim that's light as air.
-Plug 'vim-airline/vim-airline'
-
-" A collection of themes for vim-airline.
-Plug 'vim-airline/vim-airline-themes'
+" A light and configurable statusline/tabline plugin for Vim
+Plug 'itchyny/lightline.vim'
 
 " Solarized Colorscheme for Vim.
 Plug 'altercation/vim-colors-solarized'
@@ -458,7 +455,7 @@ function! VisualSelection(direction, extra_filter) range
     let l:pattern = substitute(l:pattern, "\n$", "", "")
 
     if a:direction == 'gv'
-        call CmdLine("Ack '" . l:pattern . "' " )
+        call CmdLine("Ag '" . l:pattern . "' " )
     elseif a:direction == 'replace'
         call CmdLine("%s" . '/'. l:pattern . '/')
     endif
@@ -470,11 +467,12 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => source file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source ~/.vim/configs/airline.vim
+source ~/.vim/configs/lightline.vim
 source ~/.vim/configs/bufexplorer.vim
 source ~/.vim/configs/cscope.vim
 source ~/.vim/configs/ctags.vim
 source ~/.vim/configs/custum_mapping.vim
+source ~/.vim/configs/doxygentoolkit.vim
 source ~/.vim/configs/easymotion.vim
 source ~/.vim/configs/fzf.vim
 source ~/.vim/configs/nerdcommenter.vim
@@ -483,7 +481,6 @@ source ~/.vim/configs/tagbar.vim
 source ~/.vim/configs/trailing-whitespace.vim
 source ~/.vim/configs/vim-buffet.vim
 source ~/.vim/configs/vim-easy-align.vim
-" source ~/.vim/configs/youcompleteme.vim
 source ~/.vim/configs/coc.vim
 source ~/.vim/configs/nationalchip.vim
 
