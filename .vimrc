@@ -8,6 +8,9 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
+" Adds file type icons to Vim plugins such as: NERDTree, vim-airline
+Plug 'ryanoasis/vim-devicons', { 'do': '~/.vim/fonts/install.sh' }
+
 " Displays tags in a window, ordered by scope.
 Plug 'majutsushi/tagbar'
 
@@ -28,9 +31,6 @@ Plug 'itchyny/lightline.vim'
 
 " Solarized Colorscheme for Vim.
 Plug 'altercation/vim-colors-solarized'
-
-" Adds file type icons to Vim plugins such as: NERDTree, vim-airline
-Plug 'ryanoasis/vim-devicons', { 'do': '~/.vim/fonts/install.sh' }
 
 " provides a much simpler way to use some motions in vim.
 Plug 'easymotion/vim-easymotion'
