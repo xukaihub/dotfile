@@ -62,6 +62,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 Plug 'bronson/vim-trailing-whitespace'
 
+" Simplify Doxygen documentation in C, C++, Python.
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " Nodejs extension host for vim & neovim, load extensions like VSCode and host language servers.
@@ -282,6 +283,8 @@ set wrap "Wrap lines
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+" When you press <leader>r you can search and replace the selected text
+vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
